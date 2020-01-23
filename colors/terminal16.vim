@@ -89,7 +89,7 @@ else
     hi  ModeMsg       cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  MsgSeparator  cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  MoreMsg       cterm=NONE  ctermfg=0    ctermbg=NONE
-    hi  NonText       cterm=NONE  ctermfg=0    ctermbg=NONE
+    hi  NonText       cterm=NONE  ctermfg=7    ctermbg=NONE
     hi  Pmenu         cterm=NONE  ctermfg=15     ctermbg=8
     hi  PmenuSel      cterm=NONE  ctermfg=0     ctermbg=11
     hi  PmenuSbar     cterm=NONE  ctermfg=NONE  ctermbg=8
@@ -97,7 +97,7 @@ else
     hi  Question      cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  QuickFixLine  cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  Search        cterm=NONE  ctermfg=0     ctermbg=11
-    hi  SpecialKey    cterm=NONE  ctermfg=0    ctermbg=NONE
+    hi  SpecialKey    cterm=NONE  ctermfg=7    ctermbg=NONE
     hi  SpellBad      cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  SpellCap      cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  SpellLocal    cterm=NONE  ctermfg=0    ctermbg=NONE
@@ -126,12 +126,12 @@ endif
 
 " Prefered group, see :h syntax-highlight
 if &background ==# 'dark'
-    hi  Comment     cterm=NONE       ctermfg=2     ctermbg=NONE
+    hi  Comment     cterm=NONE       ctermfg=10     ctermbg=NONE
     hi  Constant    cterm=NONE       ctermfg=15    ctermbg=NONE
     hi  Identifier  cterm=NONE       ctermfg=15    ctermbg=NONE
     hi  Statement   cterm=NONE       ctermfg=15    ctermbg=NONE
-    hi  PreProc     cterm=NONE       ctermfg=15    ctermbg=NONE
-    hi  Type        cterm=NONE       ctermfg=15    ctermbg=NONE
+    hi  PreProc     cterm=NONE       ctermfg=12    ctermbg=NONE
+    hi  Type        cterm=NONE       ctermfg=12    ctermbg=NONE
     hi  Special     cterm=NONE       ctermfg=15    ctermbg=NONE
     hi  Underlined  cterm=underline  ctermfg=NONE  ctermbg=NONE
     hi  Ignore      cterm=NONE       ctermfg=15    ctermbg=NONE
@@ -142,8 +142,8 @@ else
     hi  Constant    cterm=NONE       ctermfg=0    ctermbg=NONE
     hi  Identifier  cterm=NONE       ctermfg=0    ctermbg=NONE
     hi  Statement   cterm=NONE       ctermfg=0    ctermbg=NONE
-    hi  PreProc     cterm=NONE       ctermfg=0    ctermbg=NONE
-    hi  Type        cterm=NONE       ctermfg=0    ctermbg=NONE
+    hi  PreProc     cterm=NONE       ctermfg=4    ctermbg=NONE
+    hi  Type        cterm=NONE       ctermfg=4    ctermbg=NONE
     hi  Special     cterm=NONE       ctermfg=0    ctermbg=NONE
     hi  Underlined  cterm=underline  ctermfg=NONE  ctermbg=NONE
     hi  Ignore      cterm=NONE       ctermfg=0    ctermbg=NONE
@@ -152,13 +152,69 @@ else
 endif
 
 if &background ==# 'dark'
-    hi String cterm=NONE ctermfg=7 ctermbg=NONE
-    hi Character cterm=NONE ctermfg=7 ctermbg=NONE
-    hi Number cterm=NONE ctermfg=7 ctermbg=NONE
-    hi Float cterm=NONE ctermfg=7 ctermbg=NONE
+    " Constants
+    hi String cterm=NONE ctermfg=9 ctermbg=NONE
+
+    " Indentifiers html/xml
+    hi xmlTagName cterm=NONE ctermfg=12 ctermbg=NONE
+
+    " Statements
+    hi Conditional cterm=NONE ctermfg=12 ctermbg=NONE
+    hi Repeat cterm=NONE ctermfg=12 ctermbg=NONE
+    hi Label cterm=NONE ctermfg=12 ctermbg=NONE
+    hi Exception cterm=NONE ctermfg=12 ctermbg=NONE
+
+    " Statement Javascript
+    hi jsReturn cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsThis cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsOperatorKeyword cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsClassKeyword cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsExtendsKeyword cterm=NONE ctermfg=12 ctermbg=NONE
+
+    " Types html/xml
+    hi xmlAttrib cterm=NONE ctermfg=15 ctermbg=NONE
+    
+    " GitGutter
+    hi GitGutterAdd cterm=NONE ctermfg=10 ctermbg=NONE
+    hi GitGutterChange cterm=NONE ctermfg=11 ctermbg=NONE
+    hi GitGutterDelete cterm=NONE ctermfg=9 ctermbg=NONE
+
+    " ALE
+    hi ALEWarningSign cterm=NONE ctermfg=11 ctermbg=NONE
+    hi ALEErrorSign cterm=NONE ctermfg=9 ctermbg=NONE
+    hi ALEWarning cterm=NONE ctermfg=0 ctermbg=11
+    hi ALEError cterm=NONE ctermfg=0 ctermbg=9
 else
-    hi String cterm=NONE ctermfg=8 ctermbg=NONE
-    hi Character cterm=NONE ctermfg=8 ctermbg=NONE
-    hi Number cterm=NONE ctermfg=8 ctermbg=NONE
-    hi Float cterm=NONE ctermfg=8 ctermbg=NONE
-endif
+    " Constants
+    hi String cterm=NONE ctermfg=1 ctermbg=NONE
+
+    " Indentifiers html/xml
+    hi xmlTagName cterm=NONE ctermfg=4 ctermbg=NONE
+
+    " Types html/xml
+    hi xmlAttrib cterm=NONE ctermfg=0 ctermbg=NONE
+
+    " Statements
+    hi Conditional cterm=NONE ctermfg=4 ctermbg=NONE
+    hi Repeat cterm=NONE ctermfg=4 ctermbg=NONE
+    hi Label cterm=NONE ctermfg=4 ctermbg=NONE
+    hi Exception cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsClassKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsExtendsKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+
+    " Statements Javascript
+    hi jsReturn cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsThis cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsOperatorKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+
+    " GitGutter
+    hi GitGutterAdd cterm=NONE ctermfg=2 ctermbg=NONE
+    hi GitGutterChange cterm=NONE ctermfg=3 ctermbg=NONE
+    hi GitGutterDelete cterm=NONE ctermfg=1 ctermbg=NONE
+
+    " ALE
+    hi ALEWarningSign cterm=NONE ctermfg=3 ctermbg=NONE
+    hi ALEErrorSign cterm=NONE ctermfg=1 ctermbg=NONE
+    hi ALEWarning cterm=NONE ctermfg=15 ctermbg=3
+    hi ALEError cterm=NONE ctermfg=15 ctermbg=1
+end
