@@ -1,5 +1,5 @@
 # README
-A __very__ simple color scheme for Vim. It's intended to be used with the first 16 (0-15) terminal colors. This means it will adapt depending on what colors your terminal use. In that way you'll get the same look in terminal and Vim. :thumbsup:
+A very simple color scheme for Vim. It's intended to be used with the first 16 (0-15) terminal colors. This means it will adapt depending on what colors your terminal use. In that way you'll get the same look in terminal and Vim. :thumbsup:
 
 ## Supported plugins
 - [Vim JavaScript](https://github.com/pangloss/vim-javascript)
