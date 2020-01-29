@@ -19,6 +19,7 @@ This theme basically uses the dark colors on white light white in the light vari
 - [GitGutter](https://github.com/airblade/vim-gitgutter)
 
 ## Screenshots
+The screenshots below use the "Builtin Tango Dark" terminal color scheme from [github.com/mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes). Typeface is Fira Code Medium.
 
 ![Terminal 16 color scheme in both dark and light variants](https://raw.githubusercontent.com/primalivet/vim-terminal16/master/screenshots/light_and_dark.png)
 
