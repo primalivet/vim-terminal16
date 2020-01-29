@@ -23,7 +23,7 @@ When you customize your terminal colors, make sure you got __contrast__ between 
 - [Lightline](https://github.com/itchyny/lightline.vim)
 
 ## :camera: Screenshots
-The screenshots below use the "Builtin Tango Dark" terminal color scheme from [github.com/mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes). Typeface is Fira Code Medium.
+The screenshots below use the "Builtin Tango Dark" terminal color scheme from [github.com/mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes). Typeface is [Fira Code Medium](https://github.com/tonsky/FiraCode).
 
 ![Terminal 16 color scheme in both dark and light variants](https://raw.githubusercontent.com/primalivet/vim-terminal16/master/screenshots/light_and_dark.png)
 
