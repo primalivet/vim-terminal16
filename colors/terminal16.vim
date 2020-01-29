@@ -217,4 +217,62 @@ else
     hi ALEErrorSign cterm=NONE ctermfg=1 ctermbg=NONE
     hi ALEWarning cterm=NONE ctermfg=15 ctermbg=3
     hi ALEError cterm=NONE ctermfg=15 ctermbg=1
-end
+endif
+
+
+let  s:color0   =  [  'NONE',  0   ] " dark black
+let  s:color1   =  [  'NONE',  1   ] " dark red
+let  s:color2   =  [  'NONE',  2   ] " dark green
+let  s:color3   =  [  'NONE',  3   ] " dark yellow
+let  s:color4   =  [  'NONE',  4   ] " dark blue
+let  s:color5   =  [  'NONE',  5   ] " dark purple
+let  s:color6   =  [  'NONE',  6   ] " dark teal
+let  s:color7   =  [  'NONE',  7   ] " dark white
+let  s:color8   =  [  'NONE',  8   ] " light black
+let  s:color9   =  [  'NONE',  9   ] " light red
+let  s:color10  =  [  'NONE',  10  ] " light green
+let  s:color11  =  [  'NONE',  11  ] " light yellow
+let  s:color12  =  [  'NONE',  12  ] " light blue
+let  s:color13  =  [  'NONE',  13  ] " light purple
+let  s:color14  =  [  'NONE',  14  ] " light teal
+let  s:color15  =  [  'NONE',  15  ] " light white
+
+
+if &background ==# 'dark'
+    let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+    let  s:p.normal.left      =  [  [  s:color0,  s:color15   ],  [  s:color8,  s:color7  ]  ]
+    let  s:p.normal.middle    =  [  [  s:color7,   s:color8   ]   ]
+    let  s:p.normal.right     =  [  [  s:color8,   s:color7   ]   ]
+    let  s:p.inactive.left    =  [  [  s:color15,   s:color8   ]   ]
+    let  s:p.inactive.middle  =  [  [  s:color15,   s:color8   ]   ]
+    let  s:p.inactive.right   =  [  [  s:color15,   s:color8   ]   ]
+    let  s:p.insert.left      =  [  [  s:color0,   s:color10  ],  [  s:color8,  s:color7  ]  ]
+    let  s:p.visual.left      =  [  [  s:color0,   s:color11  ],  [  s:color8,  s:color7  ]  ]
+    let  s:p.replace.left     =  [  [  s:color0,   s:color9   ],  [  s:color8,  s:color7  ]  ]
+    let  s:p.tabline.left     =  [  [  s:color7,   s:color8   ]   ]
+    let  s:p.tabline.tabsel   =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.tabline.middle   =  [  [  s:color7,   s:color8   ]   ]
+    let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
+    let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
+else
+    let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+    let  s:p.normal.left      =  [  [  s:color15,  s:color0   ],  [  s:color7,  s:color8  ]  ]
+    let  s:p.normal.middle    =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.normal.right     =  [  [  s:color7,   s:color8   ]   ]
+    let  s:p.inactive.left    =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.inactive.middle  =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.inactive.right   =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.insert.left      =  [  [  s:color0,   s:color2  ],  [  s:color7,  s:color8  ]  ]
+    let  s:p.visual.left      =  [  [  s:color0,   s:color3  ],  [  s:color7,  s:color8  ]  ]
+    let  s:p.replace.left     =  [  [  s:color0,   s:color1   ],  [  s:color7,  s:color8  ]  ]
+    let  s:p.tabline.left     =  [  [  s:color8,   s:color7   ]   ]
+    let  s:p.tabline.tabsel   =  [  [  s:color15,   s:color8   ]   ]
+    let  s:p.tabline.middle   =  [  [  s:color8,   s:color7   ]   ]
+    let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
+    let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
+    let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
+endif
+
