@@ -1,4 +1,4 @@
-# Vim Terminal 16
+# Terminal 16
 A very simple color scheme for Vim that focus on comments, strings and "language specific keywords".
 
 ## :rainbow: Colors
