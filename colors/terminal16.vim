@@ -17,10 +17,10 @@ if &background ==# 'dark'
     hi  CursorColumn  cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  CursorLine    cterm=underline  ctermfg=NONE  ctermbg=NONE
     hi  Directory     cterm=NONE  ctermfg=15    ctermbg=NONE
-    hi  DiffAdd       cterm=NONE  ctermfg=NONE  ctermbg=2
-    hi  DiffChange    cterm=NONE  ctermfg=NONE  ctermbg=3
-    hi  DiffDelete    cterm=NONE  ctermfg=NONE  ctermbg=1
-    hi  DiffText      cterm=NONE  ctermfg=NONE  ctermbg=NONE
+    hi  DiffAdd       cterm=NONE  ctermfg=0  ctermbg=2
+    hi  DiffChange    cterm=NONE  ctermfg=0  ctermbg=3
+    hi  DiffDelete    cterm=NONE  ctermfg=0  ctermbg=1
+    hi  DiffText      cterm=NONE  ctermfg=0  ctermbg=11
     hi  EndOfBuffer   cterm=NONE  ctermfg=8     ctermbg=NONE
     hi  TermCursor    cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  TermCursorNC  cterm=NONE  ctermfg=15    ctermbg=NONE
@@ -31,7 +31,7 @@ if &background ==# 'dark'
     hi  SignColumn    cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  IncSearch     cterm=NONE  ctermfg=0     ctermbg=3
     hi  Substitute    cterm=NONE  ctermfg=15    ctermbg=NONE
-    hi  LineNr        cterm=NONE  ctermfg=8    ctermbg=NONE
+    hi  LineNr        cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  CursorLineNr  cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  MatchParen    cterm=NONE  ctermfg=0     ctermbg=15
     hi  ModeMsg       cterm=NONE  ctermfg=15    ctermbg=NONE
@@ -58,7 +58,7 @@ if &background ==# 'dark'
     hi  Title         cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  Visual        cterm=NONE  ctermfg=0     ctermbg=15
     hi  VisualNOS     cterm=NONE  ctermfg=0     ctermbg=15
-    hi  WarningMsg    cterm=NONE  ctermfg=0     ctermbg=3
+    hi  WarningMsg    cterm=NONE  ctermfg=11     ctermbg=0
     hi  Whitespace    cterm=NONE  ctermfg=15    ctermbg=NONE
     hi  WildMenu      cterm=NONE  ctermfg=0     ctermbg=11
 else
@@ -69,10 +69,10 @@ else
     hi  CursorColumn  cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  CursorLine    cterm=underline  ctermfg=NONE  ctermbg=NONE
     hi  Directory     cterm=NONE  ctermfg=0    ctermbg=NONE
-    hi  DiffAdd       cterm=NONE  ctermfg=NONE  ctermbg=2
-    hi  DiffChange    cterm=NONE  ctermfg=NONE  ctermbg=3
-    hi  DiffDelete    cterm=NONE  ctermfg=NONE  ctermbg=1
-    hi  DiffText      cterm=NONE  ctermfg=NONE  ctermbg=NONE
+    hi  DiffAdd       cterm=NONE  ctermfg=0  ctermbg=2
+    hi  DiffChange    cterm=NONE  ctermfg=0  ctermbg=3
+    hi  DiffDelete    cterm=NONE  ctermfg=0  ctermbg=1
+    hi  DiffText      cterm=NONE  ctermfg=0  ctermbg=11
     hi  EndOfBuffer   cterm=NONE  ctermfg=7     ctermbg=NONE
     hi  TermCursor    cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  TermCursorNC  cterm=NONE  ctermfg=0    ctermbg=NONE
@@ -83,7 +83,7 @@ else
     hi  SignColumn    cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  IncSearch     cterm=NONE  ctermfg=0     ctermbg=3
     hi  Substitute    cterm=NONE  ctermfg=0    ctermbg=NONE
-    hi  LineNr        cterm=NONE  ctermfg=7    ctermbg=NONE
+    hi  LineNr        cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  CursorLineNr  cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  MatchParen    cterm=NONE  ctermfg=15     ctermbg=0
     hi  ModeMsg       cterm=NONE  ctermfg=0    ctermbg=NONE
@@ -110,7 +110,7 @@ else
     hi  Title         cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  Visual        cterm=NONE  ctermfg=15     ctermbg=0
     hi  VisualNOS     cterm=NONE  ctermfg=15     ctermbg=0
-    hi  WarningMsg    cterm=NONE  ctermfg=15     ctermbg=3
+    hi  WarningMsg    cterm=NONE  ctermfg=3     ctermbg=0
     hi  Whitespace    cterm=NONE  ctermfg=0    ctermbg=NONE
     hi  WildMenu      cterm=NONE  ctermfg=0     ctermbg=11
 endif
@@ -126,7 +126,7 @@ endif
 
 " Prefered group, see :h syntax-highlight
 if &background ==# 'dark'
-    hi  Comment     cterm=NONE       ctermfg=10     ctermbg=NONE
+    hi  Comment     cterm=NONE       ctermfg=15     ctermbg=NONE
     hi  Constant    cterm=NONE       ctermfg=15    ctermbg=NONE
     hi  Identifier  cterm=NONE       ctermfg=15    ctermbg=NONE
     hi  Statement   cterm=NONE       ctermfg=15    ctermbg=NONE
@@ -135,10 +135,10 @@ if &background ==# 'dark'
     hi  Special     cterm=NONE       ctermfg=15    ctermbg=NONE
     hi  Underlined  cterm=underline  ctermfg=NONE  ctermbg=NONE
     hi  Ignore      cterm=NONE       ctermfg=15    ctermbg=NONE
-    hi  Error       cterm=NONE       ctermfg=0     ctermbg=1
+    hi  Error       cterm=NONE       ctermfg=1     ctermbg=9
     hi  Todo        cterm=NONE       ctermfg=0     ctermbg=3
 else
-    hi  Comment     cterm=NONE       ctermfg=2     ctermbg=NONE
+    hi  Comment     cterm=NONE       ctermfg=0     ctermbg=NONE
     hi  Constant    cterm=NONE       ctermfg=0    ctermbg=NONE
     hi  Identifier  cterm=NONE       ctermfg=0    ctermbg=NONE
     hi  Statement   cterm=NONE       ctermfg=0    ctermbg=NONE
@@ -147,13 +147,13 @@ else
     hi  Special     cterm=NONE       ctermfg=0    ctermbg=NONE
     hi  Underlined  cterm=underline  ctermfg=NONE  ctermbg=NONE
     hi  Ignore      cterm=NONE       ctermfg=0    ctermbg=NONE
-    hi  Error       cterm=NONE       ctermfg=15     ctermbg=1
+    hi  Error       cterm=NONE       ctermfg=2     ctermbg=15
     hi  Todo        cterm=NONE       ctermfg=15     ctermbg=3
 endif
 
 if &background ==# 'dark'
     " Constants
-    hi String cterm=NONE ctermfg=9 ctermbg=NONE
+    hi String cterm=NONE ctermfg=10 ctermbg=NONE
     hi Boolean cterm=NONE ctermfg=12 ctermbg=NONE
     hi jsGlobalNodeObjects cterm=NONE ctermfg=12 ctermbg=NONE
 
@@ -165,6 +165,9 @@ if &background ==# 'dark'
     hi Repeat cterm=NONE ctermfg=12 ctermbg=NONE
     hi Label cterm=NONE ctermfg=12 ctermbg=NONE
     hi Exception cterm=NONE ctermfg=12 ctermbg=NONE
+
+    " Stagement PHP
+    hi phpKeyword cterm=NONE ctermfg=12 ctermbg=NONE
 
     " Statement Javascript
     hi jsReturn cterm=NONE ctermfg=12 ctermbg=NONE
@@ -190,7 +193,7 @@ if &background ==# 'dark'
     hi ALEError cterm=NONE ctermfg=0 ctermbg=9
 else
     " Constants
-    hi String cterm=NONE ctermfg=1 ctermbg=NONE
+    hi String cterm=NONE ctermfg=2 ctermbg=NONE
     hi Boolean cterm=NONE ctermfg=4 ctermbg=NONE
     hi jsGlobalNodeObjects cterm=NONE ctermfg=4 ctermbg=NONE
 
@@ -205,8 +208,9 @@ else
     hi Repeat cterm=NONE ctermfg=4 ctermbg=NONE
     hi Label cterm=NONE ctermfg=4 ctermbg=NONE
     hi Exception cterm=NONE ctermfg=4 ctermbg=NONE
-    hi jsClassKeyword cterm=NONE ctermfg=4 ctermbg=NONE
-    hi jsExtendsKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+
+    " Stagement PHP
+    hi phpKeyword cterm=NONE ctermfg=12 ctermbg=NONE
 
     " Statements Javascript
     hi jsReturn cterm=NONE ctermfg=4 ctermbg=NONE
@@ -229,63 +233,17 @@ else
     hi ALEError cterm=NONE ctermfg=15 ctermbg=1
 endif
 
-
-let  s:color0   =  [  'NONE',  0   ] " dark black
-let  s:color1   =  [  'NONE',  1   ] " dark red
-let  s:color2   =  [  'NONE',  2   ] " dark green
-let  s:color3   =  [  'NONE',  3   ] " dark yellow
-let  s:color4   =  [  'NONE',  4   ] " dark blue
-let  s:color5   =  [  'NONE',  5   ] " dark purple
-let  s:color6   =  [  'NONE',  6   ] " dark teal
-let  s:color7   =  [  'NONE',  7   ] " dark white
-let  s:color8   =  [  'NONE',  8   ] " light black
-let  s:color9   =  [  'NONE',  9   ] " light red
-let  s:color10  =  [  'NONE',  10  ] " light green
-let  s:color11  =  [  'NONE',  11  ] " light yellow
-let  s:color12  =  [  'NONE',  12  ] " light blue
-let  s:color13  =  [  'NONE',  13  ] " light purple
-let  s:color14  =  [  'NONE',  14  ] " light teal
-let  s:color15  =  [  'NONE',  15  ] " light white
-
-if exists("g:lightline")
-    " Use this do switch lightline colors depending on background
-    if lightline#colorscheme#background() ==# 'dark'
-    "if &background ==# 'dark'
-        let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-        let  s:p.normal.left      =  [  [  s:color0,  s:color15   ],  [  s:color8,  s:color7  ]  ]
-        let  s:p.normal.middle    =  [  [  s:color7,   s:color8   ]   ]
-        let  s:p.normal.right     =  [  [  s:color8,   s:color7   ]   ]
-        let  s:p.inactive.left    =  [  [  s:color15,   s:color8   ]   ]
-        let  s:p.inactive.middle  =  [  [  s:color15,   s:color8   ]   ]
-        let  s:p.inactive.right   =  [  [  s:color15,   s:color8   ]   ]
-        let  s:p.insert.left      =  [  [  s:color0,   s:color10  ],  [  s:color8,  s:color7  ]  ]
-        let  s:p.visual.left      =  [  [  s:color0,   s:color11  ],  [  s:color8,  s:color7  ]  ]
-        let  s:p.replace.left     =  [  [  s:color0,   s:color9   ],  [  s:color8,  s:color7  ]  ]
-        let  s:p.tabline.left     =  [  [  s:color7,   s:color8   ]   ]
-        let  s:p.tabline.tabsel   =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.tabline.middle   =  [  [  s:color7,   s:color8   ]   ]
-        let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
-        let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
-    else
-        let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-        let  s:p.normal.left      =  [  [  s:color15,  s:color0   ],  [  s:color7,  s:color8  ]  ]
-        let  s:p.normal.middle    =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.normal.right     =  [  [  s:color7,   s:color8   ]   ]
-        let  s:p.inactive.left    =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.inactive.middle  =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.inactive.right   =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.insert.left      =  [  [  s:color0,   s:color2  ],  [  s:color7,  s:color8  ]  ]
-        let  s:p.visual.left      =  [  [  s:color0,   s:color3  ],  [  s:color7,  s:color8  ]  ]
-        let  s:p.replace.left     =  [  [  s:color0,   s:color1   ],  [  s:color7,  s:color8  ]  ]
-        let  s:p.tabline.left     =  [  [  s:color8,   s:color7   ]   ]
-        let  s:p.tabline.tabsel   =  [  [  s:color15,   s:color8   ]   ]
-        let  s:p.tabline.middle   =  [  [  s:color8,   s:color7   ]   ]
-        let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
-        let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
-        let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
-    endif
-endif
-
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'WarningMsg'],
+  \ 'fg+':     ['fg', 'Normal'],
+  \ 'bg+':     ['bg', 'Normal'],
+  \ 'hl+':     ['fg', 'WarningMsg'],
+  \ 'info':    ['fg', 'Normal'],
+  \ 'border':  ['fg', 'Normal'],
+  \ 'prompt':  ['fg', 'Normal'],
+  \ 'pointer': ['fg', 'Normal'],
+  \ 'marker':  ['fg', 'Normal'],
+  \ 'spinner': ['fg', 'Normal'],
+  \ 'header':  ['fg', 'Normal'] }
