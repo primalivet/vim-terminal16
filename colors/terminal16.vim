@@ -154,6 +154,8 @@ endif
 if &background ==# 'dark'
     " Constants
     hi String cterm=NONE ctermfg=9 ctermbg=NONE
+    hi Boolean cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsGlobalNodeObjects cterm=NONE ctermfg=12 ctermbg=NONE
 
     " Indentifiers html/xml
     hi xmlTagName cterm=NONE ctermfg=12 ctermbg=NONE
@@ -170,6 +172,8 @@ if &background ==# 'dark'
     hi jsOperatorKeyword cterm=NONE ctermfg=12 ctermbg=NONE
     hi jsClassKeyword cterm=NONE ctermfg=12 ctermbg=NONE
     hi jsExtendsKeyword cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsAsyncKeyword cterm=NONE ctermfg=12 ctermbg=NONE
+    hi jsForAwait cterm=NONE ctermfg=12 ctermbg=NONE
 
     " Types html/xml
     hi xmlAttrib cterm=NONE ctermfg=15 ctermbg=NONE
@@ -187,6 +191,8 @@ if &background ==# 'dark'
 else
     " Constants
     hi String cterm=NONE ctermfg=1 ctermbg=NONE
+    hi Boolean cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsGlobalNodeObjects cterm=NONE ctermfg=4 ctermbg=NONE
 
     " Indentifiers html/xml
     hi xmlTagName cterm=NONE ctermfg=4 ctermbg=NONE
@@ -206,6 +212,10 @@ else
     hi jsReturn cterm=NONE ctermfg=4 ctermbg=NONE
     hi jsThis cterm=NONE ctermfg=4 ctermbg=NONE
     hi jsOperatorKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsClassKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsExtendsKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsAsyncKeyword cterm=NONE ctermfg=4 ctermbg=NONE
+    hi jsForAwait cterm=NONE ctermfg=4 ctermbg=NONE
 
     " GitGutter
     hi GitGutterAdd cterm=NONE ctermfg=2 ctermbg=NONE
@@ -237,42 +247,45 @@ let  s:color13  =  [  'NONE',  13  ] " light purple
 let  s:color14  =  [  'NONE',  14  ] " light teal
 let  s:color15  =  [  'NONE',  15  ] " light white
 
-
-if &background ==# 'dark'
-    let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-    let  s:p.normal.left      =  [  [  s:color0,  s:color15   ],  [  s:color8,  s:color7  ]  ]
-    let  s:p.normal.middle    =  [  [  s:color7,   s:color8   ]   ]
-    let  s:p.normal.right     =  [  [  s:color8,   s:color7   ]   ]
-    let  s:p.inactive.left    =  [  [  s:color15,   s:color8   ]   ]
-    let  s:p.inactive.middle  =  [  [  s:color15,   s:color8   ]   ]
-    let  s:p.inactive.right   =  [  [  s:color15,   s:color8   ]   ]
-    let  s:p.insert.left      =  [  [  s:color0,   s:color10  ],  [  s:color8,  s:color7  ]  ]
-    let  s:p.visual.left      =  [  [  s:color0,   s:color11  ],  [  s:color8,  s:color7  ]  ]
-    let  s:p.replace.left     =  [  [  s:color0,   s:color9   ],  [  s:color8,  s:color7  ]  ]
-    let  s:p.tabline.left     =  [  [  s:color7,   s:color8   ]   ]
-    let  s:p.tabline.tabsel   =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.tabline.middle   =  [  [  s:color7,   s:color8   ]   ]
-    let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
-    let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
-else
-    let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-    let  s:p.normal.left      =  [  [  s:color15,  s:color0   ],  [  s:color7,  s:color8  ]  ]
-    let  s:p.normal.middle    =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.normal.right     =  [  [  s:color7,   s:color8   ]   ]
-    let  s:p.inactive.left    =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.inactive.middle  =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.inactive.right   =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.insert.left      =  [  [  s:color0,   s:color2  ],  [  s:color7,  s:color8  ]  ]
-    let  s:p.visual.left      =  [  [  s:color0,   s:color3  ],  [  s:color7,  s:color8  ]  ]
-    let  s:p.replace.left     =  [  [  s:color0,   s:color1   ],  [  s:color7,  s:color8  ]  ]
-    let  s:p.tabline.left     =  [  [  s:color8,   s:color7   ]   ]
-    let  s:p.tabline.tabsel   =  [  [  s:color15,   s:color8   ]   ]
-    let  s:p.tabline.middle   =  [  [  s:color8,   s:color7   ]   ]
-    let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
-    let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
-    let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
+if exists("g:lightline")
+    " Use this do switch lightline colors depending on background
+    if lightline#colorscheme#background() ==# 'dark'
+    "if &background ==# 'dark'
+        let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+        let  s:p.normal.left      =  [  [  s:color0,  s:color15   ],  [  s:color8,  s:color7  ]  ]
+        let  s:p.normal.middle    =  [  [  s:color7,   s:color8   ]   ]
+        let  s:p.normal.right     =  [  [  s:color8,   s:color7   ]   ]
+        let  s:p.inactive.left    =  [  [  s:color15,   s:color8   ]   ]
+        let  s:p.inactive.middle  =  [  [  s:color15,   s:color8   ]   ]
+        let  s:p.inactive.right   =  [  [  s:color15,   s:color8   ]   ]
+        let  s:p.insert.left      =  [  [  s:color0,   s:color10  ],  [  s:color8,  s:color7  ]  ]
+        let  s:p.visual.left      =  [  [  s:color0,   s:color11  ],  [  s:color8,  s:color7  ]  ]
+        let  s:p.replace.left     =  [  [  s:color0,   s:color9   ],  [  s:color8,  s:color7  ]  ]
+        let  s:p.tabline.left     =  [  [  s:color7,   s:color8   ]   ]
+        let  s:p.tabline.tabsel   =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.tabline.middle   =  [  [  s:color7,   s:color8   ]   ]
+        let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
+        let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
+    else
+        let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+        let  s:p.normal.left      =  [  [  s:color15,  s:color0   ],  [  s:color7,  s:color8  ]  ]
+        let  s:p.normal.middle    =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.normal.right     =  [  [  s:color7,   s:color8   ]   ]
+        let  s:p.inactive.left    =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.inactive.middle  =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.inactive.right   =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.insert.left      =  [  [  s:color0,   s:color2  ],  [  s:color7,  s:color8  ]  ]
+        let  s:p.visual.left      =  [  [  s:color0,   s:color3  ],  [  s:color7,  s:color8  ]  ]
+        let  s:p.replace.left     =  [  [  s:color0,   s:color1   ],  [  s:color7,  s:color8  ]  ]
+        let  s:p.tabline.left     =  [  [  s:color8,   s:color7   ]   ]
+        let  s:p.tabline.tabsel   =  [  [  s:color15,   s:color8   ]   ]
+        let  s:p.tabline.middle   =  [  [  s:color8,   s:color7   ]   ]
+        let  s:p.tabline.right    =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.normal.error     =  [  [  s:color0,   s:color7   ]   ]
+        let  s:p.normal.warning   =  [  [  s:color0,   s:color7   ]   ]
+        let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
+    endif
 endif
 
