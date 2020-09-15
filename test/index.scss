@@ -1,0 +1,22 @@
+$bp1: 640px;
+
+body {
+  background: blue;
+
+  @include bp($bp1) {
+    background: gree;
+
+    &:after {
+      content: 'string';
+      transform: translateY(100%);
+    }
+
+    > h1[type="text"] + p:not('intro') {
+      color: red;
+    }
+
+    #first .class {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Terminal16",
+
+  "cursorColor": "#c3c3c3",
+
+  "background": "#000000",
+  "foreground": "#c3c3c3",
+
+  "black": "#000000",
+  "blue": "#005299",
+  "cyan": "#00996f",
+  "green": "#529900",
+  "purple": "#990099",
+  "red": "#991c00",
+  "white": "#c3c3c3",
+  "yellow": "#ff9600",
+  "brightBlack": "#5f5f5f",
+  "brightBlue": "#0086ff",
+  "brightCyan": "#00ffae",
+  "brightGreen": "#8bff00",
+  "brightPurple": "#ff00ff",
+  "brightRed": "#ff2f00",
+  "brightWhite": "#ffffff",
+  "brightYellow": "#ffee00"
+}

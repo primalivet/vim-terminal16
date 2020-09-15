@@ -1,0 +1,26 @@
+body {
+  background: blue;
+}
+
+@media screen and (min-width: 640px) {
+  body {
+    background: green;
+  }
+
+  body:after {
+    content: 'string';
+    transform: translateY(100%);
+  }
+
+  body > h1[type="text"] + p:not('intro') {
+    color: red;
+  }
+
+  .style.this .that {
+    color: orange;
+  }
+
+  #first .class {
+    opacity: 1;
+  }
+}
