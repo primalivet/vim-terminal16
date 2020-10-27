@@ -13,7 +13,15 @@
 " - Comments are green
 " - Strings and RegExp are bright green
 " - "UI" elements are bight yellow
-" - CursorLine has no indicator excerpt bright yellow CursorLineNr
+" - CursorLine has no indicator excerpt bright yellow CursorLineNr (see
+"   exception below)
+" - CocHighlightText uses a darker grey
+"
+" Even though this beeing a 16 ANSI colors colorscheme user has the option to
+" enhance it with 256 colors. If enabled these are the affected areas:
+" - StatusLine and StatusLineNC has darker backgrounds
+" - CursorLine has darker background
+" - Pmenu has darker background
 
 hi clear
 
@@ -21,15 +29,19 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name= "terminal16"
+let g:colors_name = "terminal16"
+
+if exists('g:terminal16_256_colors')
+  let g:use_256_colors = 1
+else
+  let g:use_256_colors = 0
+endif
 
 hi  ColorColumn   cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  Conceal       cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  Cursor        cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  CursorColumn  cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  CursorIM      cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
-hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=NONE
 hi  DiffAdd       cterm=NONE       ctermfg=0     ctermbg=2
 hi  DiffChange    cterm=NONE       ctermfg=0     ctermbg=3
 hi  DiffDelete    cterm=NONE       ctermfg=0     ctermbg=1
@@ -46,10 +58,6 @@ hi  ModeMsg       cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  MoreMsg       cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  MsgSeparator  cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  NonText       cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=8
-hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=7
-hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=15
 hi  Question      cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  QuickFixLine  cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  Search        cterm=NONE       ctermfg=0     ctermbg=11
@@ -59,8 +67,6 @@ hi  SpellBad      cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  SpellCap      cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  SpellLocal    cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  SpellRare     cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  StatusLine    cterm=NONE       ctermfg=0     ctermbg=7
-hi  StatusLineNC  cterm=NONE       ctermfg=0     ctermbg=8
 hi  Substitute    cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  TabLine       cterm=NONE       ctermfg=0     ctermbg=7
 hi  TabLineFill   cterm=NONE       ctermfg=NONE  ctermbg=7
@@ -74,6 +80,31 @@ hi  VisualNOS     cterm=NONE       ctermfg=0     ctermbg=7
 hi  WarningMsg    cterm=NONE       ctermfg=11    ctermbg=NONE
 hi  Whitespace    cterm=NONE       ctermfg=8     ctermbg=NONE
 hi  WildMenu      cterm=NONE       ctermfg=0     ctermbg=11
+
+
+if g:use_256_colors
+  hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=234
+  hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=234
+
+  hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=234
+  hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=235
+  hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
+  hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=8
+
+  hi  StatusLine    cterm=NONE       ctermfg=NONE  ctermbg=235
+  hi  StatusLineNC  cterm=NONE       ctermfg=8     ctermbg=234
+else
+  hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
+  hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=NONE
+  
+  hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=8
+  hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=7
+  hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
+  hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=15
+
+  hi  StatusLine    cterm=NONE       ctermfg=0     ctermbg=7
+  hi  StatusLineNC  cterm=NONE       ctermfg=0     ctermbg=8
+endif
 
 " Fallback on terminal foreground and background
 hi  Normal        cterm=NONE  ctermfg=NONE    ctermbg=NONE
@@ -166,13 +197,21 @@ if match(&runtimepath, 'vim-gitgutter') != -1
 
 endif
 
+if match(&runtimepath, 'coc.nvim') != -1
+  if g:terminal16_256_colors
+    hi CocHighlightText cterm=NONE ctermfg=NONE ctermbg=236
+  else
+    hi CocHighlightText cterm=NONE ctermfg=NONE ctermbg=8
+  endif
+endif
+
 if match(&runtimepath, 'ale') != -1
 
   " ALE
   hi ALEWarningSign cterm=NONE ctermfg=3 ctermbg=NONE
   hi ALEErrorSign cterm=NONE ctermfg=1 ctermbg=NONE
-  hi ALEWarning cterm=underline ctermfg=11 ctermbg=NONE
-  hi ALEError cterm=underline ctermfg=9 ctermbg=NONE
+  hi ALEWarning cterm=underline ctermfg=NONE ctermbg=NONE
+  hi ALEError cterm=underline ctermfg=NONE ctermbg=NONE
 
 endif
 
@@ -183,66 +222,10 @@ if match(&runtimepath, 'vim-which-key') != -1
   hi  WhichKeyDesc       cterm=NONE  ctermfg=2     ctermbg=NONE
 endif
 
-if match(&runtimepath, 'lightline.vim') != -1
-  let s:black          = [ 'NONE', '0'  ]
-  let s:red            = [ 'NONE', '1'  ]
-  let s:green          = [ 'NONE', '2'  ]
-  let s:yellow         = [ 'NONE', '3'  ]
-  let s:blue           = [ 'NONE', '4'  ]
-  let s:magenta        = [ 'NONE', '5'  ]
-  let s:cyan           = [ 'NONE', '6'  ]
-  let s:white          = [ 'NONE', '7'  ]
-  let s:bright_black   = [ 'NONE', '8'  ]
-  let s:bright_red     = [ 'NONE', '9'  ]
-  let s:bright_green   = [ 'NONE', '10' ]
-  let s:bright_yellow  = [ 'NONE', '11' ]
-  let s:bright_blue    = [ 'NONE', '12' ]
-  let s:bright_magenta = [ 'NONE', '13' ]
-  let s:bright_cyan    = [ 'NONE', '14' ]
-  let s:bright_white   = [ 'NONE', '15' ]
-
-  let s:fg             = [ 'NONE', '8' ]
-  let s:fg_nc          = [ 'NONE', '8' ]
-
-  let s:insertbg       = [ 'NONE', '11' ]
-  let s:visualbg       = [ 'NONE', '3' ]
-  let s:replacebg      = [ 'NONE', '9' ]
-
-  let s:dark           = [ 'NONE', '235' ]
-  let s:darker         = [ 'NONE', '234' ]
-  let s:darkest        = [ 'NONE', '233' ]
-
-  let s:none = [ 'NONE', 'NONE' ]
-
-  let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-
-  let  s:p.normal.left    =  [  [  s:fg,     s:darker   ],  [  s:fg,     s:darker]  ]
-  let  s:p.inactive.left  =  [  [  s:fg_nc,  s:darkest  ],  [  s:fg_nc,  s:darkest  ]  ]
-
-  let  s:p.normal.middle    =  [  [  s:fg,     s:darker    ]  ]
-  let  s:p.inactive.middle  =  [  [  s:fg_nc,  s:darkest]  ]
-
-  let  s:p.normal.right    =  [  [  s:fg,     s:darker   ],  [  s:fg,     s:darker],  [  s:fg,  s:darker]  ]
-  let  s:p.inactive.right  =  [  [  s:fg_nc,  s:darkest  ],  [  s:fg_nc,  s:darkest   ]  ]
-
-  let  s:p.insert.left   =  [  [  s:darker,  s:insertbg   ]  ]
-  let  s:p.replace.left  =  [  [  s:darker,  s:replacebg  ]  ]
-  let  s:p.visual.left   =  [  [  s:darker,  s:visualbg   ]  ]
-
-  let  s:p.tabline.left    =  [  [  s:fg,  s:dark   ]  ]
-  let  s:p.tabline.tabsel  =  [  [  s:fg,  s:black  ]  ]
-  let  s:p.tabline.middle  =  [  [  s:fg,  s:dark   ]  ]
-  let  s:p.tabline.left    =  [  [  s:fg,  s:dark   ]  ]
-
-  let  s:p.normal.error    =  [  [  s:black,  s:black  ]  ]
-  let  s:p.normal.warning  =  [  [  s:black,  s:black  ]  ]
-
-  let g:lightline#colorscheme#terminal16#palette = lightline#colorscheme#flatten(s:p)
-endif
-
 if match(&runtimepath, 'fzf.vim') != -1
 
   match FZFBorder //
+  match FZFForeground //
   match FZFHeader //
   match FZFHighlight //
   match FZFHighlightPlus //
@@ -253,6 +236,7 @@ if match(&runtimepath, 'fzf.vim') != -1
   match FZFSpinner //
 
   hi  FZFBorder         cterm=NONE  ctermfg=8   ctermbg=NONE
+  hi  FZFForeground     cterm=NONE  ctermfg=NONE  ctermbg=0
   hi  FZFHeader         cterm=NONE  ctermfg=8   ctermbg=NONE
   hi  FZFHighlight      cterm=NONE  ctermfg=11  ctermbg=0
   hi  FZFHighlightPlus  cterm=NONE  ctermfg=11  ctermbg=0
@@ -263,7 +247,7 @@ if match(&runtimepath, 'fzf.vim') != -1
   hi  FZFSpinner        cterm=NONE  ctermfg=8   ctermbg=NONE
 
   let g:fzf_colors =
-        \ { 'fg':    ['fg', 'FZFHightlight'],
+        \ { 'fg':    ['fg', 'FZFForeground'],
         \ 'bg':      ['bg', 'FZFHighlight'],
         \ 'hl':      ['fg', 'FZFHighlight'],
         \ 'fg+':     ['fg', 'FZFHighlightPlus'],
