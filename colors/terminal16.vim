@@ -22,6 +22,7 @@
 " - StatusLine and StatusLineNC has darker backgrounds
 " - CursorLine has darker background
 " - Pmenu has darker background
+" - Vim plugin indentLine lines gets darker
 
 hi clear
 
@@ -93,6 +94,10 @@ if g:use_256_colors
 
   hi  StatusLine    cterm=NONE       ctermfg=NONE  ctermbg=235
   hi  StatusLineNC  cterm=NONE       ctermfg=8     ctermbg=234
+
+  if match(&runtimepath, 'indentLine') != -1
+    let g:indentLine_color_term = 236
+  endif
 else
   hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
   hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=NONE
@@ -125,47 +130,45 @@ hi  Todo        cterm=NONE       ctermfg=11    ctermbg=NONE
 
 " Group names, see :h group-names
 
-" Conditionals, Repeaters, Labels
-hi Conditional cterm=NONE ctermfg=15 ctermbg=NONE
-hi Repeat cterm=NONE ctermfg=15 ctermbg=NONE
-hi Exception cterm=NONE ctermfg=15 ctermbg=NONE
+" BRIGHT GREEN Strings 
+hi  String     cterm=NONE  ctermfg=10  ctermbg=NONE
 
+" DARK GREEN Special strings and characters.
+" E.g. RegExp and Characters like '\n'
+hi  Character  cterm=NONE  ctermfg=2   ctermbg=NONE
+hi  Special    cterm=NONE  ctermfg=2   ctermbg=NONE
 
-" Strings and RegExp and Characters like '\n'
-hi String cterm=NONE ctermfg=10 ctermbg=NONE
-hi Character cterm=NONE ctermfg=10 ctermbg=NONE
-
-" StorageClass
-hi StorageClass cterm=NONE ctermfg=8 ctermbg=NONE
-
-" Numbers and Floats
+" PURPLE Numbers and Floats Boolean, Return, This
 hi Number cterm=NONE ctermfg=13 ctermbg=NONE
-
-" Boolean
 hi Boolean cterm=NONE ctermfg=13 ctermbg=NONE
+hi jsReturn cterm=NONE ctermfg=13 ctermbg=NONE
 
-" HTML
-hi htmlTag      cterm=NONE  ctermfg=8  ctermbg=NONE
-hi htmlTagName  cterm=NONE  ctermfg=8  ctermbg=NONE
-hi htmlSpecialTagName  cterm=NONE  ctermfg=8  ctermbg=NONE
-hi htmlEndTag   cterm=NONE  ctermfg=8  ctermbg=NONE
-hi htmlArg      cterm=NONE  ctermfg=8  ctermbg=NONE
+" RED null, undefined, javascript this
+hi  jsThis       cterm=NONE  ctermfg=9  ctermbg=NONE
+hi  jsNull       cterm=NONE  ctermfg=9  ctermbg=NONE
+hi  jsUndefined  cterm=NONE  ctermfg=9  ctermbg=NONE
 
-" JS
-hi jsReturn cterm=NONE ctermfg=15 ctermbg=NONE
-hi jsConditional cterm=NONE ctermfg=15 ctermbg=NONE
-hi jsLabel cterm=NONE ctermfg=15 ctermbg=NONE
-hi jsRepeat cterm=NONE ctermfg=15 ctermbg=NONE
-hi jsFuncCall cterm=NONE ctermfg=15 ctermbg=NONE
-hi jsStorageClass cterm=NONE ctermfg=8 ctermbg=NONE
-hi jsNull cterm=NONE ctermfg=13 ctermbg=NONE
+" YELLOW operators (some)
+hi  jsOperator       cterm=NONE  ctermfg=11  ctermbg=NONE
 
-" PHP
-hi phpKeyword cterm=NONE ctermfg=15 ctermbg=NONE
-hi phpBoolean cterm=NONE ctermfg=13 ctermbg=NONE
-hi phpNullValue cterm=NONE ctermfg=13 ctermbg=NONE
+" WHITE Parenthesis, Brackets and lambdas (only jsarrow)
+hi  jsParens          cterm=NONE  ctermfg=15  ctermbg=NONE
+hi  jsBrackets        cterm=NONE  ctermfg=15  ctermbg=NONE
+hi  jsFuncParens      cterm=NONE  ctermfg=15  ctermbg=NONE
+hi  jsTemplateBraces  cterm=NONE  ctermfg=15  ctermbg=NONE
+hi  jsArrowFunction   cterm=NONE  ctermfg=15  ctermbg=NONE
 
-" JSX
+hi phpParent cterm=NONE ctermfg=15 ctermbg=NONE
+
+" DIMMED StorageClass (const, var, let) and HTML/XML/JSX 
+" tags and CSS properties
+hi  StorageClass cterm=NONE  ctermfg=8  ctermbg=NONE
+
+hi  htmlTag             cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  htmlTagName         cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  htmlSpecialTagName  cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  htmlEndTag          cterm=NONE  ctermfg=8  ctermbg=NONE
+
 hi  jsxComponentName  cterm=NONE  ctermfg=8  ctermbg=NONE
 hi  jsxTagName        cterm=NONE  ctermfg=8  ctermbg=NONE
 hi  jsxOpenPunct      cterm=NONE  ctermfg=8  ctermbg=NONE
@@ -174,19 +177,9 @@ hi  jsxCloseString    cterm=NONE  ctermfg=8  ctermbg=NONE
 hi  jsxAttrib         cterm=NONE  ctermfg=8  ctermbg=NONE
 hi  jsxEqual          cterm=NONE  ctermfg=8  ctermbg=NONE
 
-" CSS / SCSS
-hi cssTagName   cterm=NONE  ctermfg=15  ctermbg=NONE
-hi cssClassName   cterm=NONE  ctermfg=15  ctermbg=NONE
-hi cssIdentifier   cterm=NONE  ctermfg=15  ctermbg=NONE
-hi cssAttributeSelector   cterm=NONE  ctermfg=15  ctermbg=NONE
-hi scssProperty   cterm=NONE  ctermfg=8  ctermbg=NONE
-hi scssAmpersand   cterm=NONE  ctermfg=15  ctermbg=NONE
-hi scssMixinName   cterm=NONE  ctermfg=NONE  ctermbg=NONE
-hi cssProp   cterm=NONE  ctermfg=8  ctermbg=NONE
-
-" Makefile
-hi makeCommands cterm=NONE ctermfg=7 ctermbg=NONE
-hi makeTarget cterm=NONE ctermfg=15 ctermbg=0
+hi  scssProperty   cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  scssMixinName  cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  cssProp        cterm=NONE  ctermfg=8  ctermbg=NONE
 
 if match(&runtimepath, 'vim-gitgutter') != -1
 
