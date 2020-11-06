@@ -61,8 +61,6 @@ hi  MsgSeparator  cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  NonText       cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  Question      cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  QuickFixLine  cterm=NONE       ctermfg=7     ctermbg=NONE
-" TODO: search orange in birght mode, might have to do with
-" fzf color groups.
 hi  Search        cterm=NONE       ctermfg=0     ctermbg=11
 hi  SignColumn    cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  SpecialKey    cterm=NONE       ctermfg=7     ctermbg=NONE
@@ -89,79 +87,36 @@ if g:use_256_colors
   hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=234
   hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=234
 
-  if &background == 'light'
-    hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=254
-    hi  CursorLineNr  cterm=NONE       ctermfg=3    ctermbg=254
-  endif
-
   hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=234
   hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=235
   hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
   hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=8
 
-  if &background == 'light'
-    hi  Pmenu         cterm=NONE       ctermfg=8     ctermbg=255
-    hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=254
-    hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-    hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=7
-  endif
-
   hi  StatusLine    cterm=NONE       ctermfg=NONE  ctermbg=235
   hi  StatusLineNC  cterm=NONE       ctermfg=8     ctermbg=234
 
-  if &background == 'light'
-    hi  StatusLine    cterm=NONE       ctermfg=NONE  ctermbg=253
-    hi  StatusLineNC  cterm=NONE       ctermfg=8     ctermbg=255
-  endif
-
   if match(&runtimepath, 'indentLine') != -1
     let g:indentLine_color_term = 236
-
-    if &background == 'light'
-      let g:indentLine_color_term = 254
-    endif
   endif
 else
   hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
   hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=NONE
-
-  if &background == 'light'
-    hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
-    hi  CursorLineNr  cterm=NONE       ctermfg=3    ctermbg=NONE
-  endif
   
   hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=8
   hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=7
   hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
   hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=15
 
-  if &background == 'light'
-    hi  Pmenu         cterm=NONE       ctermfg=8     ctermbg=7
-    hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=8
-    hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-    hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=0
-  endif
-
   hi  StatusLine    cterm=NONE       ctermfg=0     ctermbg=7
   hi  StatusLineNC  cterm=NONE       ctermfg=0     ctermbg=8
-
-  if &background == 'light'
-    hi  StatusLine    cterm=NONE       ctermfg=15     ctermbg=8
-    hi  StatusLineNC  cterm=NONE       ctermfg=15     ctermbg=7
-  endif
 endif
 
 " Fallback on terminal foreground and background
-hi  Normal        cterm=NONE  ctermfg=7    ctermbg=0
-hi  NormalNC      cterm=NONE  ctermfg=NONE ctermbg=NONE
-
-if &background == 'light'
-  hi  Normal        cterm=NONE  ctermfg=8    ctermbg=15
-  hi  NormalNC      cterm=NONE  ctermfg=NONE ctermbg=NONE
-endif
+hi  Normal        cterm=NONE  ctermfg=NONE    ctermbg=NONE
+hi  NormalNC      cterm=NONE  ctermfg=NONE    ctermbg=NONE
 
 " Prefered group, see :h syntax-highlight
-hi  Comment     cterm=NONE       ctermfg=10     ctermbg=NONE
+hi  Comment     cterm=NONE       ctermfg=2     ctermbg=NONE
 hi  Constant    cterm=NONE       ctermfg=NONE    ctermbg=NONE
 hi  Identifier  cterm=NONE       ctermfg=NONE    ctermbg=NONE
 hi  Statement   cterm=NONE       ctermfg=NONE    ctermbg=NONE
@@ -173,60 +128,28 @@ hi  Ignore      cterm=NONE       ctermfg=NONE    ctermbg=NONE
 hi  Error       cterm=underline  ctermfg=9    ctermbg=NONE
 hi  Todo        cterm=NONE       ctermfg=11    ctermbg=NONE
 
-if &background == 'light'
-  hi  Comment     cterm=NONE       ctermfg=2     ctermbg=NONE
-  hi  Error       cterm=underline  ctermfg=9    ctermbg=8
-  hi  Todo        cterm=NONE       ctermfg=11    ctermbg=8
-endif
-
-
 " Group names, see :h group-names
 
 " BRIGHT GREEN Strings 
 hi  String     cterm=NONE  ctermfg=10  ctermbg=NONE
-
-if &background == 'light'
-  hi  String     cterm=NONE  ctermfg=2  ctermbg=NONE
-endif
 
 " DARK GREEN Special strings and characters.
 " E.g. RegExp and Characters like '\n'
 hi  Character  cterm=NONE  ctermfg=2   ctermbg=NONE
 hi  Special    cterm=NONE  ctermfg=2   ctermbg=NONE
 
-if &background == 'light'
-  hi  Character  cterm=NONE  ctermfg=10   ctermbg=NONE
-  hi  Special    cterm=NONE  ctermfg=10   ctermbg=NONE
-endif
-
 " PURPLE Numbers and Floats Boolean, Return, This
 hi Number cterm=NONE ctermfg=13 ctermbg=NONE
 hi Boolean cterm=NONE ctermfg=13 ctermbg=NONE
 hi jsReturn cterm=NONE ctermfg=13 ctermbg=NONE
-
-if &background == 'light'
-  hi Number cterm=NONE ctermfg=5 ctermbg=NONE
-  hi Boolean cterm=NONE ctermfg=5 ctermbg=NONE
-  hi jsReturn cterm=NONE ctermfg=5 ctermbg=NONE
-endif
 
 " RED null, undefined, javascript this
 hi  jsThis       cterm=NONE  ctermfg=9  ctermbg=NONE
 hi  jsNull       cterm=NONE  ctermfg=9  ctermbg=NONE
 hi  jsUndefined  cterm=NONE  ctermfg=9  ctermbg=NONE
 
-if &background == 'light'
-  hi  jsThis       cterm=NONE  ctermfg=1  ctermbg=NONE
-  hi  jsNull       cterm=NONE  ctermfg=1  ctermbg=NONE
-  hi  jsUndefined  cterm=NONE  ctermfg=1  ctermbg=NONE
-endif
-
-" WHITE operators (some)
-hi  jsOperator       cterm=NONE  ctermfg=15  ctermbg=NONE
-
-if &background == 'light'
-  hi  jsOperator       cterm=NONE  ctermfg=0  ctermbg=NONE
-endif
+" YELLOW operators (some)
+hi  jsOperator       cterm=NONE  ctermfg=11  ctermbg=NONE
 
 " WHITE Parenthesis, Brackets and lambdas (only jsarrow)
 hi  jsParens          cterm=NONE  ctermfg=15  ctermbg=NONE
@@ -235,82 +158,53 @@ hi  jsFuncParens      cterm=NONE  ctermfg=15  ctermbg=NONE
 hi  jsTemplateBraces  cterm=NONE  ctermfg=15  ctermbg=NONE
 hi  jsArrowFunction   cterm=NONE  ctermfg=15  ctermbg=NONE
 
-if &background == 'light'
-  hi  jsParens          cterm=NONE  ctermfg=0  ctermbg=NONE
-  hi  jsBrackets        cterm=NONE  ctermfg=0  ctermbg=NONE
-  hi  jsFuncParens      cterm=NONE  ctermfg=0  ctermbg=NONE
-  hi  jsTemplateBraces  cterm=NONE  ctermfg=0  ctermbg=NONE
-  hi  jsArrowFunction   cterm=NONE  ctermfg=0  ctermbg=NONE
-endif
-
 hi phpParent cterm=NONE ctermfg=15 ctermbg=NONE
-
-if &background == 'light'
-  hi phpParent cterm=NONE ctermfg=0 ctermbg=NONE
-endif
 
 " DIMMED StorageClass (const, var, let) and HTML/XML/JSX 
 " tags and CSS properties
 hi  StorageClass cterm=NONE  ctermfg=8  ctermbg=NONE
-if &background == 'light'
-  hi  StorageClass cterm=NONE  ctermfg=7  ctermbg=NONE
-endif
 
-hi  htmlTag             cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  htmlTagName         cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  htmlSpecialTagName  cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  htmlEndTag          cterm=NONE  ctermfg=7  ctermbg=NONE
+hi  htmlTag             cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  htmlTagName         cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  htmlSpecialTagName  cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  htmlEndTag          cterm=NONE  ctermfg=8  ctermbg=NONE
 
-if &background == 'light'
-endif
+hi  jsxComponentName  cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  jsxTagName        cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  jsxOpenPunct      cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  jsxClosePunct     cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  jsxCloseString    cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  jsxAttrib         cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  jsxEqual          cterm=NONE  ctermfg=8  ctermbg=NONE
 
-hi  jsxComponentName  cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  jsxTagName        cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  jsxOpenPunct      cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  jsxClosePunct     cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  jsxCloseString    cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  jsxAttrib         cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  jsxEqual          cterm=NONE  ctermfg=7  ctermbg=NONE
-
-if &background == 'light'
-endif
-
-hi  scssProperty   cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  scssMixinName  cterm=NONE  ctermfg=7  ctermbg=NONE
-hi  cssProp        cterm=NONE  ctermfg=7  ctermbg=NONE
-
-if &background == 'light'
-endif
+hi  scssProperty   cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  scssMixinName  cterm=NONE  ctermfg=8  ctermbg=NONE
+hi  cssProp        cterm=NONE  ctermfg=8  ctermbg=NONE
 
 if match(&runtimepath, 'vim-gitgutter') != -1
 
   " GitGutter
-  hi GitGutterAdd cterm=NONE ctermfg=11 ctermbg=NONE
-  hi GitGutterChange cterm=NONE ctermfg=10 ctermbg=NONE
-  hi GitGutterDelete cterm=NONE ctermfg=9 ctermbg=NONE
+  hi GitGutterAdd cterm=NONE ctermfg=2 ctermbg=NONE
+  hi GitGutterChange cterm=NONE ctermfg=3 ctermbg=NONE
+  hi GitGutterDelete cterm=NONE ctermfg=1 ctermbg=NONE
 
-  if &background == 'light'
-    hi GitGutterAdd cterm=NONE ctermfg=2 ctermbg=NONE
-    hi GitGutterChange cterm=NONE ctermfg=3 ctermbg=NONE
-    hi GitGutterDelete cterm=NONE ctermfg=1 ctermbg=NONE
+endif
+
+if match(&runtimepath, 'coc.nvim') != -1
+  if g:terminal16_256_colors
+    hi CocHighlightText cterm=NONE ctermfg=NONE ctermbg=236
+  else
+    hi CocHighlightText cterm=NONE ctermfg=NONE ctermbg=8
   endif
-
 endif
 
 if match(&runtimepath, 'ale') != -1
 
   " ALE
-  hi ALEWarningSign cterm=NONE ctermfg=10 ctermbg=NONE
-  hi ALEErrorSign cterm=NONE ctermfg=9 ctermbg=NONE
+  hi ALEWarningSign cterm=NONE ctermfg=3 ctermbg=NONE
+  hi ALEErrorSign cterm=NONE ctermfg=1 ctermbg=NONE
   hi ALEWarning cterm=underline ctermfg=NONE ctermbg=NONE
   hi ALEError cterm=underline ctermfg=NONE ctermbg=NONE
-
-  if &background == 'light'
-    hi ALEWarningSign cterm=NONE ctermfg=3 ctermbg=NONE
-    hi ALEErrorSign cterm=NONE ctermfg=1 ctermbg=NONE
-    hi ALEWarning cterm=underline ctermfg=NONE ctermbg=NONE
-    hi ALEError cterm=underline ctermfg=NONE ctermbg=NONE
-  endif
 
 endif
 
@@ -318,14 +212,7 @@ if match(&runtimepath, 'vim-which-key') != -1
   hi  WhichKey           cterm=NONE  ctermfg=11    ctermbg=NONE
   hi  WhichKeySeperator  cterm=NONE  ctermfg=NONE  ctermbg=NONE
   hi  WhichKeyGroup      cterm=NONE  ctermfg=10    ctermbg=NONE
-  hi  WhichKeyDesc       cterm=NONE  ctermfg=10     ctermbg=NONE
-
-  if &background == 'light'
-    hi  WhichKey           cterm=NONE  ctermfg=3    ctermbg=NONE
-    hi  WhichKeySeperator  cterm=NONE  ctermfg=NONE  ctermbg=NONE
-    hi  WhichKeyGroup      cterm=NONE  ctermfg=2    ctermbg=NONE
-    hi  WhichKeyDesc       cterm=NONE  ctermfg=2     ctermbg=NONE
-  endif
+  hi  WhichKeyDesc       cterm=NONE  ctermfg=2     ctermbg=NONE
 endif
 
 if match(&runtimepath, 'fzf.vim') != -1
@@ -351,19 +238,6 @@ if match(&runtimepath, 'fzf.vim') != -1
   hi  FZFPointer        cterm=NONE  ctermfg=15  ctermbg=NONE
   hi  FZFPrompt         cterm=NONE  ctermfg=8   ctermbg=NONE
   hi  FZFSpinner        cterm=NONE  ctermfg=8   ctermbg=NONE
-
-  if &background == 'light'
-    hi  FZFBorder         cterm=NONE  ctermfg=7   ctermbg=NONE
-    hi  FZFForeground     cterm=NONE  ctermfg=NONE  ctermbg=15
-    hi  FZFHeader         cterm=NONE  ctermfg=7   ctermbg=NONE
-    hi  FZFHighlight      cterm=NONE  ctermfg=3  ctermbg=15
-    hi  FZFHighlightPlus  cterm=NONE  ctermfg=3  ctermbg=15
-    hi  FZFInfo           cterm=NONE  ctermfg=7   ctermbg=NONE
-    hi  FZFMarker         cterm=NONE  ctermfg=3  ctermbg=NONE
-    hi  FZFPointer        cterm=NONE  ctermfg=0  ctermbg=NONE
-    hi  FZFPrompt         cterm=NONE  ctermfg=7   ctermbg=NONE
-    hi  FZFSpinner        cterm=NONE  ctermfg=7   ctermbg=NONE
-  endif
 
   let g:fzf_colors =
         \ { 'fg':    ['fg', 'FZFForeground'],
