@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#  -e exit immediatley if a simple command  exits with non-zero
+#  -u treat unset variables as errors in parameter expressions
+#  -C prevent output redirection
+set -euC
+
+attach() {
+    [ -n "${TMUX:-}" ] &&
+        tmux switch-client -t  '=vim_terminal16' ||
+        tmux attach-session -t '=vim_terminal16'
+}
+
+if tmux has-session -t '=vim_terminal16' 2> /dev/null; then
+    attach
+    exit 0
+fi
+
+# -d prevent tmux to attach the new session
+# -s session name
+# -n window name (a new tmux session always need atleast 1 window)
+tmux new-session -d -s vim_terminal16
+tmux new-window -d -t '=vim_terminal16'
+tmux send-keys -t '=vim_terminal16:1' 'git log --oneline | head' Enter
