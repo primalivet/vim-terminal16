@@ -138,11 +138,10 @@ if &background == 'light'
   hi  LineNr        cterm=NONE       ctermfg=8     ctermbg=NONE
 endif
 
-hi  CursorLineNr  cterm=NONE       ctermfg=0    ctermbg=13
+hi  CursorLineNr  cterm=NONE       ctermfg=15    ctermbg=NONE
 
 if &background == 'light'
-  hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
-  hi  CursorLineNr  cterm=NONE       ctermfg=3    ctermbg=NONE
+  hi  CursorLineNr  cterm=NONE       ctermfg=0    ctermbg=NONE
 endif
 
 " Tabs, Splits
@@ -158,10 +157,10 @@ if &background == 'light'
   hi  TabLineSel    cterm=NONE       ctermfg=0     ctermbg=NONE
 endif
 
-hi  VertSplit     cterm=NONE       ctermfg=15     ctermbg=15
+hi  VertSplit     cterm=NONE       ctermfg=15     ctermbg=NONE
 
 if &background == 'light'
-  hi  VertSplit     cterm=NONE       ctermfg=0     ctermbg=0
+  hi  VertSplit     cterm=NONE       ctermfg=0     ctermbg=NONE
 endif
 
 " Pmenu / Wildmenu 
@@ -213,7 +212,7 @@ if &background == 'light'
   hi  MatchParen    cterm=NONE       ctermfg=15     ctermbg=0
 endif
 
-" Normalas 
+" Normala
 " ---------------------------------------------------------------------------
 
 hi  Normal        cterm=NONE  ctermfg=15    ctermbg=0
