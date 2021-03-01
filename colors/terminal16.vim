@@ -9,20 +9,15 @@
 " you shouldn't use "set termguicolors" with this colorscheme. If you do,
 " colors will fallback to vim/neovim default colorscheme.
 "
-" - Numberlikes are magentan
-" - Comments are green
-" - Strings and RegExp are bright green
-" - "UI" elements are bight yellow
-" - CursorLine has no indicator excerpt bright yellow CursorLineNr (see
-"   exception below)
-" - CocHighlightText uses a darker grey
+" - Most stuff is black and white, or white and blsck depending on your
+"   background.
+" - Comments, Strings and RegExp are green
+" - "UI" elements are magentan
+" - CursorLine has no indicator 
 "
-" Even though this beeing a 16 ANSI colors colorscheme user has the option to
-" enhance it with 256 colors. If enabled these are the affected areas:
-" - StatusLine and StatusLineNC has darker backgrounds
-" - CursorLine has darker background
-" - Pmenu has darker background
-" - Vim plugin indentLine lines gets darker
+" - On light background colors 1-6 are exclusive.
+" - On dark backgroubd colors 9-14 are exclusive.
+" - Colors 0, 7, 8, 15 are used on both.
 
 hi clear
 
@@ -32,44 +27,80 @@ endif
 
 let g:colors_name = "terminal16"
 
-if exists('g:terminal16_256_colors')
-  let g:use_256_colors = 1
-else
-  let g:use_256_colors = 0
+hi  ColorColumn   cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  Conceal       cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  Cursor        cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  CursorColumn  cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  CursorIM      cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  Directory     cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  EndOfBuffer   cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  ModeMsg       cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  MoreMsg       cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  MsgSeparator  cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  FoldColumn    cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  Folded        cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  NonText       cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  Question      cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  QuickFixLine  cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  SignColumn    cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  SpecialKey    cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  SpellBad      cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  SpellCap      cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  SpellLocal    cterm=NONE       ctermfg=15     ctermbg=NONE
+hi  SpellRare     cterm=NONE       ctermfg=15     ctermbg=NONE
+
+
+if &background == 'light'
+  hi  ColorColumn   cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  Conceal       cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  Cursor        cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  CursorColumn  cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  CursorIM      cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  Directory     cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  EndOfBuffer   cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  ModeMsg       cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  MoreMsg       cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  MsgSeparator  cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  FoldColumn    cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  Folded        cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  NonText       cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  Question      cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  QuickFixLine  cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  SignColumn    cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  SpecialKey    cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  SpellBad      cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  SpellCap      cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  SpellLocal    cterm=NONE       ctermfg=0     ctermbg=NONE
+  hi  SpellRare     cterm=NONE       ctermfg=0     ctermbg=NONE
 endif
 
-hi  ColorColumn   cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  Conceal       cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  Cursor        cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  CursorColumn  cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  CursorIM      cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  DiffAdd       cterm=NONE       ctermfg=0     ctermbg=2
-hi  DiffChange    cterm=NONE       ctermfg=0     ctermbg=3
-hi  DiffDelete    cterm=NONE       ctermfg=0     ctermbg=1
-hi  DiffText      cterm=NONE       ctermfg=0     ctermbg=11
-hi  Directory     cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  EndOfBuffer   cterm=NONE       ctermfg=8     ctermbg=NONE
+hi  DiffAdd       cterm=NONE       ctermfg=0     ctermbg=10
+hi  DiffChange    cterm=NONE       ctermfg=0     ctermbg=11
+hi  DiffDelete    cterm=NONE       ctermfg=0     ctermbg=9
+hi  DiffText      cterm=NONE       ctermfg=0     ctermbg=NONE
+
+if &background == 'light'
+  hi  DiffAdd       cterm=NONE       ctermfg=0     ctermbg=2
+  hi  DiffChange    cterm=NONE       ctermfg=0     ctermbg=3
+  hi  DiffDelete    cterm=NONE       ctermfg=0     ctermbg=1
+  hi  DiffText      cterm=NONE       ctermfg=0     ctermbg=NONE
+endif
+
+hi  WarningMsg    cterm=NONE       ctermfg=11    ctermbg=NONE
 hi  ErrorMsg      cterm=NONE       ctermfg=9     ctermbg=NONE
-hi  FoldColumn    cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  Folded        cterm=NONE       ctermfg=7     ctermbg=NONE
+
+if &background == 'light'
+  hi  WarningMsg    cterm=NONE       ctermfg=3    ctermbg=NONE
+  hi  ErrorMsg      cterm=NONE       ctermfg=1     ctermbg=NONE
+endif
+
 hi  IncSearch     cterm=NONE       ctermfg=0     ctermbg=3
-hi  LineNr        cterm=NONE       ctermfg=8     ctermbg=NONE
-hi  MatchParen    cterm=NONE       ctermfg=0     ctermbg=11
-hi  ModeMsg       cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  MoreMsg       cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  MsgSeparator  cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  NonText       cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  Question      cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  QuickFixLine  cterm=NONE       ctermfg=7     ctermbg=NONE
-" TODO: search orange in birght mode, might have to do with
-" fzf color groups.
-hi  Search        cterm=NONE       ctermfg=0     ctermbg=11
-hi  SignColumn    cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  SpecialKey    cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  SpellBad      cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  SpellCap      cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  SpellLocal    cterm=NONE       ctermfg=7     ctermbg=NONE
-hi  SpellRare     cterm=NONE       ctermfg=7     ctermbg=NONE
+hi  Search        cterm=NONE       ctermfg=0     ctermbg=13
+
+hi  LineNr        cterm=NONE       ctermfg=15     ctermbg=NONE
+
+hi  MatchParen    cterm=NONE       ctermfg=0     ctermbg=15
+
 hi  Substitute    cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  TabLine       cterm=NONE       ctermfg=0     ctermbg=7
 hi  TabLineFill   cterm=NONE       ctermfg=NONE  ctermbg=7
@@ -78,77 +109,46 @@ hi  TermCursor    cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  TermCursorNC  cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  Title         cterm=NONE       ctermfg=7     ctermbg=NONE
 hi  VertSplit     cterm=NONE       ctermfg=8     ctermbg=NONE
-hi  Visual        cterm=NONE       ctermfg=0     ctermbg=7
-hi  VisualNOS     cterm=NONE       ctermfg=0     ctermbg=7
-hi  WarningMsg    cterm=NONE       ctermfg=11    ctermbg=NONE
+
+hi  Visual        cterm=NONE       ctermfg=0     ctermbg=15
+hi  VisualNOS     cterm=NONE       ctermfg=0     ctermbg=15
+
+if &background == 'light'
+  hi  Visual        cterm=NONE       ctermfg=15     ctermbg=0
+  hi  VisualNOS     cterm=NONE       ctermfg=15     ctermbg=0
+endif
+
 hi  Whitespace    cterm=NONE       ctermfg=8     ctermbg=NONE
-hi  WildMenu      cterm=NONE       ctermfg=0     ctermbg=11
 
 
-if g:use_256_colors
-  hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=234
-  hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=234
+hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
+hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=NONE
 
-  if &background == 'light'
-    hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=254
-    hi  CursorLineNr  cterm=NONE       ctermfg=3    ctermbg=254
-  endif
-
-  hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=234
-  hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=235
-  hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-  hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=8
-
-  if &background == 'light'
-    hi  Pmenu         cterm=NONE       ctermfg=8     ctermbg=255
-    hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=254
-    hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-    hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=7
-  endif
-
-  hi  StatusLine    cterm=NONE       ctermfg=NONE  ctermbg=235
-  hi  StatusLineNC  cterm=NONE       ctermfg=8     ctermbg=234
-
-  if &background == 'light'
-    hi  StatusLine    cterm=NONE       ctermfg=NONE  ctermbg=253
-    hi  StatusLineNC  cterm=NONE       ctermfg=8     ctermbg=255
-  endif
-
-  if match(&runtimepath, 'indentLine') != -1
-    let g:indentLine_color_term = 236
-
-    if &background == 'light'
-      let g:indentLine_color_term = 254
-    endif
-  endif
-else
+if &background == 'light'
   hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
-  hi  CursorLineNr  cterm=NONE       ctermfg=11    ctermbg=NONE
+  hi  CursorLineNr  cterm=NONE       ctermfg=3    ctermbg=NONE
+endif
 
-  if &background == 'light'
-    hi  CursorLine    cterm=NONE       ctermfg=NONE  ctermbg=NONE
-    hi  CursorLineNr  cterm=NONE       ctermfg=3    ctermbg=NONE
-  endif
-  
-  hi  Pmenu         cterm=NONE       ctermfg=7     ctermbg=8
-  hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=7
+hi  Pmenu         cterm=NONE       ctermfg=0     ctermbg=15
+hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=15
+hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
+hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=0
+hi  WildMenu      cterm=NONE       ctermfg=0     ctermbg=15
+
+if &background == 'light'
+  hi  Pmenu         cterm=NONE       ctermfg=8     ctermbg=7
+  hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=8
   hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-  hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=15
+  hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=0
+  hi  WildMenu      cterm=NONE       ctermfg=0     ctermbg=11
+endif
 
-  if &background == 'light'
-    hi  Pmenu         cterm=NONE       ctermfg=8     ctermbg=7
-    hi  PmenuSbar     cterm=NONE       ctermfg=NONE  ctermbg=8
-    hi  PmenuSel      cterm=NONE       ctermfg=0     ctermbg=11
-    hi  PmenuThumb    cterm=NONE       ctermfg=NONE  ctermbg=0
-  endif
+hi  StatusLine    cterm=NONE       ctermfg=0     ctermbg=7
+hi  StatusLineNC  cterm=NONE       ctermfg=0     ctermbg=8
 
-  hi  StatusLine    cterm=NONE       ctermfg=0     ctermbg=7
-  hi  StatusLineNC  cterm=NONE       ctermfg=0     ctermbg=8
-
-  if &background == 'light'
-    hi  StatusLine    cterm=NONE       ctermfg=15     ctermbg=8
-    hi  StatusLineNC  cterm=NONE       ctermfg=15     ctermbg=7
-  endif
+if &background == 'light'
+  hi  StatusLine    cterm=NONE       ctermfg=15     ctermbg=8
+  hi  StatusLineNC  cterm=NONE       ctermfg=15     ctermbg=7
 endif
 
 " Fallback on terminal foreground and background
